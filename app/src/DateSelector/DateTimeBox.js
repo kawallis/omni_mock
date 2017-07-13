@@ -14,7 +14,7 @@ class DateTimeBox extends Component {
   }
 
     componentDidMount () {
-    const { addDate } = this.props;
+    const { addDates } = this.props;
     let settings = {
       method: 'GET',
       headers: new Headers({ 'Content-Type': 'application/json' })
@@ -22,9 +22,10 @@ class DateTimeBox extends Component {
     fetch('/api/timeslots', settings)
     .then(res => res.json())
     .then(res => {
-      addDate(res);
+      addDates(res);
     });
   }
+
   showSlots() {
       let { slotsView } = this.state;
       slotsView = slotsView ? false : true;
@@ -32,8 +33,17 @@ class DateTimeBox extends Component {
   }
 
   findPrices(date) {
-    console.log(Date.parse(date));
-    
+    const { availableTimes } = this.props;
+    let times = [];
+    let i = 0;
+    availableTimes.map((time, i) => {
+      if(time.timestamp > Date.parse(date)){
+        times.push(time);
+      }
+    });
+    console.log(times)
+    console.log(typeof Date.parse(date));
+    //TODO
   }
 
   render() {

@@ -1,15 +1,15 @@
-import {ADD_DATE, CHANGE_DATE } from './constants';
+import {ADD_DATES, QUERY_DATES } from './constants';
 
-export function addDate(payload) {
+export function addDates(payload) {
   return {
-    type: ADD_DATE,
+    type: ADD_DATES,
     payload
   };
 }
 
-export function changeDate(payload) {
+export function queryDates(payload) {
   return {
-    type: CHANGE_DATE,
+    type: QUERY_DATES,
     payload
   };
 }

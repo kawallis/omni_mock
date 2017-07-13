@@ -1,2 +1,2 @@
-export const ADD_DATE = 'ADD_DATE';
-export const CHANGE_DATE = 'CHANGE_DATE';
+export const ADD_DATES = 'ADD_DATES';
+export const QUERY_DATES = 'QUERY_DATES';

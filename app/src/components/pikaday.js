@@ -8,7 +8,7 @@ export default function PikadayBox(props) {
 
   return (
     <div className="PikadayContainer">
-        <Pikaday format="YYYY/MM/DD" className="PikadayDropDown" placeholder={props.date} onChange={props.findPrices}/>
+        <Pikaday className="PikadayDropDown" placeholder={props.date} onChange={props.findPrices}/>
         <img className="ArrowIcon" src={arrow} alt="" />
     </div>
   );
