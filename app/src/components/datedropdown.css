@@ -19,7 +19,19 @@
 .SlotsBox{
     position: fixed;
     top: 0px;
+    height: auto;
+    width: 25vw;
+    text-align: center;
 }
+
+.Times {
+    list-style: none;
+}
+
+.Prices {
+    margin-left: 25px;
+}
+
 
 .SlotsBox {
     min-height: 5vh;
