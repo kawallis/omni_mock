@@ -30,32 +30,22 @@ class DateTimeBox extends Component {
   }
 
   showSlots() {
-      let { slotsView } = this.state;
+      let { slotsView, queryDates } = this.state;
       slotsView = slotsView ? false : true;
       this.setState({ slotsView: slotsView })
   }
 
   findPrices(date) {
-    const { availableTimes } = this.props;
+    const { availableTimes, queryDates } = this.props;
     Date.prototype.addDays = function(days) {
       var dat = new Date(this.valueOf());
       dat.setDate(dat.getDate() + days);
       return dat;
     }
-    let arr = availableTimes.filter(item => {
+    let newDates = availableTimes.filter(item => {
       return (item.timestamp >= date && item.timestamp <= date.addDays(1)); 
     });
-    console.log(arr);
-    // let settings = {
-    //   method: 'GET',
-    //   headers: new Headers({ 'Content-Type': 'application/json' })
-    // };
-    // fetch(`/api/timeslots/${date}`, settings)
-    // .then(res => res.json())
-    // .then(res => {
-    //   changeDates(res);
-    // //TODO
-    // });
+    queryDates(newDates)
   }
 
   render() {

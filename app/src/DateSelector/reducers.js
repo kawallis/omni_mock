@@ -7,6 +7,10 @@ export default function DateTimeSelector(state, { type, payload}) {
     update.availableTimes = payload;
     return update;
   case QUERY_DATES:
+  console.log(payload)
+  let newState = {...state};
+  newState.time = payload;
+  return newState;
   //TODO
     return
   default:
