@@ -1,13 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './datedropdown.css';
 import arrow from '../assets/arrow.svg';
 
-export default function DateDropDown(props) {
+class DateDropDown extends Component {
 
-  return (
-    <div className="DateDropDownContainer">
-      <h3>{props.text}</h3>
-      <img className="ArrowIcon" src={arrow} alt="" />
-    </div>
-  );
+  render () {
+    let slots = null;
+    if ( this.props.slotsView ) {
+      slots = <div className="SlotsBox">
+              { this.props.availableTimes.map(time => {
+                return (
+                  <div>
+                    <p>{time.time}</p>
+                    <p>{time.price}</p>
+                  </div>
+                );
+              })}
+              </div>
+    }else {
+      slots = null;
+    }
+    return (
+    <div className="MainContainer">
+        <div className="DateDropDownContainer" 
+        onClick={() => {
+          this.props.showSlots();
+        }}>
+          <h3>{this.props.text}</h3>
+          <img className="ArrowIcon" src={arrow} alt="" />
+        </div>
+        {slots}
+      </div>
+    );
+  }
 }
+
+export default DateDropDown;
