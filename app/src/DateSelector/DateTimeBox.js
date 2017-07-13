@@ -22,7 +22,10 @@ class DateTimeBox extends Component {
     fetch('/api/timeslots', settings)
     .then(res => res.json())
     .then(res => {
-      addDates(res);
+      let arr = res.map(item => {
+        return {timestamp: new Date(item.timestamp*1000), price: item.price}
+      })
+      addDates(arr);
     });
   }
 
@@ -33,17 +36,16 @@ class DateTimeBox extends Component {
   }
 
   findPrices(date) {
-    const { addDates } = this.props;
-    let settings = {
-      method: 'GET',
-      headers: new Headers({ 'Content-Type': 'application/json' })
-    };
-    fetch(`/api/timeslots/${date}`, settings)
-    .then(res => res.json())
-    .then(res => {
-      changeDates(res);
-    //TODO
+    const { availableTimes, queryDates } = this.props;
+    Date.prototype.addDays = function(days) {
+      var dat = new Date(this.valueOf());
+      dat.setDate(dat.getDate() + days);
+      return dat;
+    }
+    let newDates = availableTimes.filter(item => {
+      return (item.timestamp >= date && item.timestamp <= date.addDays(1)); 
     });
+    queryDates(newDates)
   }
 
   render() {
@@ -54,7 +56,7 @@ class DateTimeBox extends Component {
         <div className="SelectorContainer">
           <PikadayBox 
           date={date} findPrices={this.findPrices}/>
-          <DateDropDown text={time}
+          <DateDropDown dates={time}
           availableTimes={availableTimes} 
           showSlots={this.showSlots}
           slotsView={this.state.slotsView}/>

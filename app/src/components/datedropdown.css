@@ -16,6 +16,11 @@
     margin: 0 1vh;
 }
 
+.SlotsBox{
+    position: fixed;
+    top: 0px;
+}
+
 .SlotsBox {
     min-height: 5vh;
     width: 18vw;

@@ -6,14 +6,14 @@ class DateDropDown extends Component {
 
   render () {
     let slots = null;
+    console.log(this.props.dates);
     if ( this.props.slotsView ) {
       slots = <div className="SlotsBox">
-              { this.props.availableTimes.map(time => {
+              { this.props.dates.map((time, i) => {
                 return (
-                  <div>
-                    <p>{time.time}</p>
-                    <p>{time.price}</p>
-                  </div>
+    
+                    <p key={i}>{time.timeslot}</p>
+
                 );
               })}
               </div>
@@ -26,7 +26,7 @@ class DateDropDown extends Component {
         onClick={() => {
           this.props.showSlots();
         }}>
-          <h3>{this.props.text}</h3>
+          <h3>Choose A Time</h3>
           <img className="ArrowIcon" src={arrow} alt="" />
         </div>
         {slots}
