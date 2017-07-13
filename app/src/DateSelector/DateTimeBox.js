@@ -30,7 +30,7 @@ class DateTimeBox extends Component {
   }
 
   showSlots() {
-      let { slotsView, queryDates } = this.state;
+      let { slotsView } = this.state;
       slotsView = slotsView ? false : true;
       this.setState({ slotsView: slotsView })
   }
@@ -56,7 +56,7 @@ class DateTimeBox extends Component {
         <div className="SelectorContainer">
           <PikadayBox 
           date={date} findPrices={this.findPrices}/>
-          <DateDropDown text={time}
+          <DateDropDown dates={time}
           availableTimes={availableTimes} 
           showSlots={this.showSlots}
           slotsView={this.state.slotsView}/>
