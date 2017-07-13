@@ -1,0 +1,19 @@
+.PikadayDropDown {
+    border: none;
+    font-family: sans-serif;
+    color: rgb(155,163,172);
+    font-size: .75em;
+    font-weight: normal;
+    height: 8vh;
+    width: 18vw;
+}
+
+.PikadayContainer {
+    border: .5px solid rgb(233,233,233);
+    padding: 0vh 2vh;
+    border-radius: 5px;
+}
+
+.PikadayDropDown:focus, input:focus{
+    outline: none;
+}

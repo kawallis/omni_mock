@@ -8,7 +8,7 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './DateSelector/reducers';
 
-const store = createStore(reducers, {date: 'Choose a date', time: 'Choose a time'},
+const store = createStore(reducers, {date: 'Choose a date', time: 'Choose a time', availableTimes: []},
 compose(
    applyMiddleware(thunk),
    window.devToolsExtension ? window.devToolsExtension() : f => f
