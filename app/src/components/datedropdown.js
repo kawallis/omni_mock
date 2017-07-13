@@ -13,7 +13,7 @@ class DateDropDown extends Component {
     let slots = null;
     if ( this.props.slotsView ) {
       slots = <div className="SlotsBox">   
-                <ul>
+                <ul className="DatesContainer">
                   {this.props.dates.map((time, i) => {
                     return <li className="Times" key={i}>{`${time.timestamp.getHours()} : ${addZero(time.timestamp.getMinutes())}`}<span className="Prices">{time.price}</span></li>;
                   })}
