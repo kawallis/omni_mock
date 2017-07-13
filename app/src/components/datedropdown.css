@@ -1,10 +1,10 @@
 .MainContainer {
-    
+    width: 25vw;
 }
 
 .DateDropDownContainer {
     height: 8vh;
-    width: 18vw;
+    width: 25vw;
     border: .5px solid rgb(233,233,233);
     background-color: rgb(255,255,255);
     display: flex;
@@ -19,25 +19,28 @@
 .SlotsBox{
     position: fixed;
     top: 0px;
-    height: auto;
-    width: 25vw;
     text-align: center;
+    padding: none;
+    margin: 0 auto;
+    min-height: 5vh;
+    position: relative;
+}
+
+.DatesContainer {
+    background-color: white;
+    border-bottom: .5px solid rgb(233,233,233);
+    width: 100%;
 }
 
 .Times {
     list-style: none;
+    border-top: 1px solid rgb(155,163,172);
+    width: 100%;
+    padding: 2vh 0vh;
 }
 
 .Prices {
-    margin-left: 25px;
-}
-
-
-.SlotsBox {
-    min-height: 5vh;
-    width: 18vw;
-    border: .5px solid rgb(233,233,233);
-    position: relative
+    padding-left: 25px;
 }
 
 h3 {
