@@ -33,17 +33,17 @@ class DateTimeBox extends Component {
   }
 
   findPrices(date) {
-    const { availableTimes } = this.props;
-    let times = [];
-    let i = 0;
-    availableTimes.map((time, i) => {
-      if(time.timestamp > Date.parse(date)){
-        times.push(time);
-      }
-    });
-    console.log(times)
-    console.log(typeof Date.parse(date));
+    const { addDates } = this.props;
+    let settings = {
+      method: 'GET',
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    };
+    fetch(`/api/timeslots/${date}`, settings)
+    .then(res => res.json())
+    .then(res => {
+      changeDates(res);
     //TODO
+    });
   }
 
   render() {
