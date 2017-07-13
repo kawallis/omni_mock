@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/navbar';
-import DateTimeBox from './DateSelector/DateTimeBox';
+import DateTimeContainer from './DateSelector/DateTimeContainer';
 
 class App extends Component {
 
@@ -22,7 +22,7 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <div className="DateContainer">
-          <DateTimeBox />
+          <DateTimeContainer />
         </div>
       </div>
     );
