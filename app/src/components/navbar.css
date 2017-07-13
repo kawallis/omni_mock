@@ -1,0 +1,14 @@
+.NavBarContainer {
+    height: 8vh;
+    width: 100%;
+    background-color: rgb(255,255,255);
+    border-bottom: 1px solid rgb(233,233,233);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 3vw;
+}
+
+.logo {
+    height: 4vh;
+}
