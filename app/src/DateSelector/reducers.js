@@ -8,7 +8,7 @@ export default function DateTimeSelector(state, { type, payload}) {
     return update;
   case QUERY_DATES:
   let newState = {...state};
-  newState.time = payload;
+  newState.times = payload;
   return newState;
   //TODO
   default:

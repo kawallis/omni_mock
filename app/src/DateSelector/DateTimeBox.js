@@ -3,6 +3,12 @@ import './DateTimeBox.css';
 import DateDropDown from '../components/datedropdown';
 import PikadayBox from '../components/pikaday';
 
+Date.prototype.addDays = function (days) {
+let dat = new Date(this.valueOf());
+    dat.setDate(dat.getDate() + days);
+    return dat;
+} 
+
 class DateTimeBox extends Component {
   constructor(){
     super();
@@ -30,18 +36,18 @@ class DateTimeBox extends Component {
   }
 
   showSlots() {
-      let { slotsView } = this.state;
-      slotsView = slotsView ? false : true;
-      this.setState({ slotsView: slotsView })
+      if(this.props.times.length === 0){
+        alert('Pick a date');
+      }
+      else {
+        let { slotsView } = this.state;
+        slotsView = slotsView ? false : true;
+        this.setState({ slotsView: slotsView })
+      }  
   }
 
   findPrices(date) {
     const { availableTimes, queryDates } = this.props;
-    Date.prototype.addDays = function(days) {
-      var dat = new Date(this.valueOf());
-      dat.setDate(dat.getDate() + days);
-      return dat;
-    }
     let newDates = availableTimes.filter(item => {
       return (item.timestamp >= date && item.timestamp <= date.addDays(1)); 
     });
@@ -49,14 +55,14 @@ class DateTimeBox extends Component {
   }
 
   render() {
-    let {date, time, availableTimes, showSlots} = this.props;
+    let {date, times, availableTimes} = this.props;
     return (
       <div className="DateTimeBox">
         <h1>Choose Date & Time</h1>
         <div className="SelectorContainer">
-          <PikadayBox 
+          <PikadayBox
           date={date} findPrices={this.findPrices}/>
-          <DateDropDown dates={time}
+          <DateDropDown dates={times}
           availableTimes={availableTimes} 
           showSlots={this.showSlots}
           slotsView={this.state.slotsView}/>
