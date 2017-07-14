@@ -6,12 +6,15 @@
     font-weight: normal;
     height: 8vh;
     width: 18vw;
+    cursor: pointer;
 }
 
 .PikadayContainer {
     border: .5px solid rgb(233,233,233);
     padding: 0vh 2vh;
     border-radius: 5px;
+    position: absolute;
+    top: 0px;
 }
 
 .PikadayDropDown:focus, input:focus{

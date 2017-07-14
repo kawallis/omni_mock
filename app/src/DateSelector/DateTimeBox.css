@@ -1,6 +1,6 @@
 .DateTimeBox {
     height: 30vh;
-    width: 45vw;
+    width: 55vw;
     border: .5px solid rgb(233,233,233);
     background-color: rgb(255,255,255);
     text-align: left;
@@ -19,4 +19,5 @@ h1 {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    position: absolute;
 }
